@@ -1,0 +1,21 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string text = "";
+
+        Console.WriteLine("Введите текст (для завершения введите 'exit'):");
+
+        string input = Console.ReadLine();
+
+        while (input != "exit")
+        {
+            text += input + Environment.NewLine;
+            input = Console.ReadLine();
+        }
+
+        Console.WriteLine(text);
+    }
+}
