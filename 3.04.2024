@@ -1,0 +1,25 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 2, 4, 6, 8, 10 };
+        Console.WriteLine(FindMedian(numbers)); // Output: 6
+    }
+
+    static double FindMedian(int[] numbers)
+    {
+        Array.Sort(numbers);
+        
+        int n = numbers.Length;
+        if (n % 2 == 0)
+        {
+            return (numbers[n / 2 - 1] + numbers[n / 2]) / 2.0;
+        }
+        else
+        {
+            return numbers[n / 2];
+        }
+    }
+}
