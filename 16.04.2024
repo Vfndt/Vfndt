@@ -1,0 +1,41 @@
+using System;
+using System.IO;
+using System.Text.RegularExpressions;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите текст. Для завершения ввода введите пустую строку:");
+
+        string input = "";
+        while (true)
+        {
+            string line = Console.ReadLine();
+            if (string.IsNullOrEmpty(line))
+            {
+                break;
+            }
+            input += line + Environment.NewLine;
+        }
+
+        File.WriteAllText("input.txt", input);
+
+        string fileContent = File.ReadAllText("input.txt");
+
+        MatchCollection matches = Regex.Matches(fileContent, @"\b\d+\b");
+
+        int sum = 0;
+        foreach (Match match in matches)
+        {
+            int number = int.Parse(match.Value);
+            sum += number;
+            Console.WriteLine(number);
+        }
+
+        double average = matches.Count > 0 ? (double)sum / matches.Count : 0;
+
+        Console.WriteLine($"Сумма всех чисел: {sum}");
+        Console.WriteLine($"Среднее значение: {average}");
+    }
+}
