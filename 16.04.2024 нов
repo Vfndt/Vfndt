@@ -1,0 +1,42 @@
+using System;
+using System.IO;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        // Ввод данных в файл
+        Console.WriteLine("Введите данные в файл input.txt (для завершения ввода введите пустую строку):");
+        using (StreamWriter writer = new StreamWriter("input.txt"))
+        {
+            string line;
+            while (!string.IsNullOrWhiteSpace(line = Console.ReadLine()))
+            {
+                writer.WriteLine(line);
+            }
+        }
+
+        // Анализ текста на наличие чисел
+        int sum = 0;
+        int count = 0;
+        using (StreamReader reader = new StreamReader("input.txt"))
+        {
+            string content = reader.ReadToEnd();
+            foreach (var word in content.Split(new char[] { ' ', 't', 'n', 'r' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                if (int.TryParse(word, out int number))
+                {
+                    sum += number;
+                    count++;
+                    Console.WriteLine($"Найдено число: {number}");
+                }
+            }
+        }
+
+        double average = count > 0 ? (double)sum / count : 0;
+
+        Console.WriteLine($"Сумма всех чисел: {sum}");
+        Console.WriteLine($"Среднее значение чисел: {average}");
+    }
+}
