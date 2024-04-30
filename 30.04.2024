@@ -1,0 +1,64 @@
+using System;
+
+namespace GeometryFigures
+{
+    class Rectangle
+    {
+        private double a;
+        private double b;
+
+        // Конструктор с двумя параметрами
+        public Rectangle(double sideA, double sideB)
+        {
+            a = sideA;
+            b = sideB;
+        }
+
+        // Конструктор с одним параметром (по умолчанию b = 1)
+        public Rectangle(double sideA)
+        {
+            a = sideA;
+            b = 1;
+        }
+
+        // Конструктор без параметров (по умолчанию a = b = 1)
+        public Rectangle()
+        {
+            a = 1;
+            b = 1;
+        }
+
+        public double GetVolume()
+        {
+            return a * b;
+        }
+
+        public double GetArea()
+        {
+            return 2 * (a + b);
+        }
+
+        public void PrintInfo()
+        {
+            Console.WriteLine($"Rectangle with sides: a = {a}, b = {b}");
+            Console.WriteLine($"Volume: {GetVolume()}");
+            Console.WriteLine($"Area: {GetArea()}n");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Rectangle rectangle1 = new Rectangle(3, 4);
+            Rectangle rectangle2 = new Rectangle(5);
+            Rectangle rectangle3 = new Rectangle();
+            Rectangle rectangle4 = new Rectangle(2, 6);
+
+            rectangle1.PrintInfo();
+            rectangle2.PrintInfo();
+            rectangle3.PrintInfo();
+            rectangle4.PrintInfo();
+        }
+    }
+}
