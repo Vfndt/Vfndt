@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="icons\bold.png" />
+    <None Remove="icons\Check.png" />
+    <None Remove="icons\crest.png" />
+    <None Remove="icons\Human.png" />
+    <None Remove="icons\italic.png" />
+    <None Remove="icons\Plus.png" />
+    <None Remove="icons\text.center.png" />
+    <None Remove="icons\text.just.png" />
+    <None Remove="icons\text.left.png" />
+    <None Remove="icons\text.right.png" />
+    <None Remove="icons\Underline.png" />
+    <None Remove="icons\vedro.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icons\bold.png" />
+    <Resource Include="icons\Check.png" />
+    <Resource Include="icons\crest.png" />
+    <Resource Include="icons\Human.png" />
+    <Resource Include="icons\italic.png" />
+    <Resource Include="icons\Plus.png" />
+    <Resource Include="icons\text.center.png" />
+    <Resource Include="icons\text.just.png" />
+    <Resource Include="icons\text.left.png" />
+    <Resource Include="icons\text.right.png" />
+    <Resource Include="icons\Underline.png" />
+    <Resource Include="icons\vedro.png" />
+  </ItemGroup>
+
+</Project>
