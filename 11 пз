@@ -1,0 +1,39 @@
+using System;
+using System.IO;
+using System.Text.RegularExpressions;
+     
+class Program
+{
+    static void Main()
+    {
+        // Чтение данных из файла input.txt
+        string input = File.ReadAllText("input.txt");
+
+        // Поиск чисел в тексте
+        MatchCollection matches = Regex.Matches(input, @"[-+]?\b(?:[0-9]+,?)+(?:\.[0-9]+)?\b");
+
+        // Переменные для суммы и количества найденных чисел
+        int sum = 0;
+        int count = 0;
+
+        // Вывод найденных чисел и подсчет суммы
+        foreach (Match match in matches)
+        {
+            Console.WriteLine(match.Value);
+            sum += int.Parse(match.Value);
+            count++;
+        }
+
+        // Вывод общей суммы и среднего значения чисел
+        if (count > 0)
+        {
+            double average = (double)sum / count;
+            Console.WriteLine($"Общая сумма чисел: {sum}");
+            Console.WriteLine($"Среднее значение чисел: {average}");
+        }
+        else
+        {
+            Console.WriteLine("Числа не найдены");
+        }
+    }
+}
