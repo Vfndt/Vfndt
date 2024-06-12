@@ -1,0 +1,58 @@
+using System;
+
+public class Rectangle
+{
+    public int Length { get; set; }
+    public int Width { get; set; }
+
+    public Rectangle(int length, int width)
+    {
+        Length = length;
+        Width = width;
+    }
+
+    public virtual void DisplayInfo()
+    {
+        Console.WriteLine($"Length: {Length}, Width: {Width}");
+    }
+}
+
+public class Cube : Rectangle
+{
+    public new int Length
+    {
+        get { return base.Length; }
+        set
+        {
+            if (value >= 1 && value <= 99)
+            {
+                base.Length = value;
+            }
+        }
+    }
+
+    public Cube(int length) : base(length, length)
+    {
+        Length = length;
+    }
+
+    public override void DisplayInfo()
+    {
+        Console.WriteLine($"Cube Edge Length: {Length}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Cube cube = new Cube(10);
+        cube.DisplayInfo();
+
+        cube.Length = 50;
+        cube.DisplayInfo();
+
+        cube.Length = 120; // Outside the allowed range
+        cube.DisplayInfo();
+    }
+}
